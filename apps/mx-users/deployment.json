@@ -1,0 +1,36 @@
+{
+  "apiVersion": "apps/v1",
+  "kind": "Deployment",
+  "metadata": {
+    "name": "mx-users"
+  },
+  "spec": {
+    "replicas": 1,
+    "selector": {
+      "matchLabels": {
+        "app": "mx-users"
+      }
+    },
+    "template": {
+      "metadata": {
+        "labels": {
+          "app": "mx-users"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "mx-users",
+            "image": "mx-users:latest",
+            "imagePullPolicy": "Never",
+            "ports": [
+              {
+                "containerPort": 3333
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
